@@ -47,7 +47,7 @@ namespace SoccerGame
             this.player.BackColor = System.Drawing.Color.Transparent;
             this.player.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("player.BackgroundImage")));
             this.player.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.player.Location = new System.Drawing.Point(128, 298);
+            this.player.Location = new System.Drawing.Point(109, 269);
             this.player.Name = "player";
             this.player.Size = new System.Drawing.Size(33, 36);
             this.player.TabIndex = 0;
@@ -58,7 +58,7 @@ namespace SoccerGame
             this.cpu.BackColor = System.Drawing.Color.Transparent;
             this.cpu.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("cpu.BackgroundImage")));
             this.cpu.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.cpu.Location = new System.Drawing.Point(928, 298);
+            this.cpu.Location = new System.Drawing.Point(787, 269);
             this.cpu.Name = "cpu";
             this.cpu.Size = new System.Drawing.Size(33, 36);
             this.cpu.TabIndex = 1;
@@ -69,7 +69,7 @@ namespace SoccerGame
             this.ball.BackColor = System.Drawing.Color.Transparent;
             this.ball.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("ball.BackgroundImage")));
             this.ball.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.ball.Location = new System.Drawing.Point(529, 298);
+            this.ball.Location = new System.Drawing.Point(451, 269);
             this.ball.Name = "ball";
             this.ball.Size = new System.Drawing.Size(30, 36);
             this.ball.TabIndex = 2;
@@ -81,7 +81,7 @@ namespace SoccerGame
             this.userPoints.BackColor = System.Drawing.Color.Transparent;
             this.userPoints.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.userPoints.ForeColor = System.Drawing.Color.Red;
-            this.userPoints.Location = new System.Drawing.Point(86, 13);
+            this.userPoints.Location = new System.Drawing.Point(104, 13);
             this.userPoints.Name = "userPoints";
             this.userPoints.Size = new System.Drawing.Size(38, 25);
             this.userPoints.TabIndex = 3;
@@ -93,7 +93,7 @@ namespace SoccerGame
             this.cpuPoints.BackColor = System.Drawing.Color.Transparent;
             this.cpuPoints.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cpuPoints.ForeColor = System.Drawing.Color.Yellow;
-            this.cpuPoints.Location = new System.Drawing.Point(948, 13);
+            this.cpuPoints.Location = new System.Drawing.Point(782, 13);
             this.cpuPoints.Name = "cpuPoints";
             this.cpuPoints.Size = new System.Drawing.Size(38, 25);
             this.cpuPoints.TabIndex = 4;
@@ -111,7 +111,7 @@ namespace SoccerGame
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("$this.BackgroundImage")));
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.ClientSize = new System.Drawing.Size(1086, 633);
+            this.ClientSize = new System.Drawing.Size(928, 574);
             this.Controls.Add(this.cpu);
             this.Controls.Add(this.player);
             this.Controls.Add(this.cpuPoints);
