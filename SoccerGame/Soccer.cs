@@ -69,6 +69,46 @@ namespace SoccerGame
 
         private void timerTick(object sender, EventArgs e)
         {
+            userPoints.Text = "" + userScore;
+            cpuPoints.Text = "" + cpuScore;
+
+            ball.Top -= bally;
+            ball.Left -= ballx;
+
+            //cpu.Top += speed;
+
+            //ball scoring functionality
+            if(ball.Left < 75 && ball.Top < 275 && ball.Top > 320)
+            {
+                ball.Left = 529;
+                ballx = -ballx;
+                cpuScore++;
+            }
+
+            if (ball.Left > 980 && ball.Top < 275 && ball.Top > 320)
+            {
+                ball.Left = 529;
+                ballx = -ballx;
+                userScore++;
+            }
+
+            if(ball.Top < 55 || ball.Top + ball.Height > 75)
+            {
+                bally = -bally;
+            }
+
+            if(ball.Left < 74 || ball.Left > 981)
+            {
+                ballx = -ballx;
+            }
+
+            if(ball.Bounds.IntersectsWith(player.Bounds) || ball.Bounds.IntersectsWith(cpu.Bounds))
+            {
+                ballx = -ballx;
+                bally = -bally;
+            }
+
+            //player functionality
             if (moveUp == true && player.Top > 55)
             {
                 player.Top -= 8;
@@ -84,6 +124,18 @@ namespace SoccerGame
             if (moveLeft == true && player.Left > 75)
             {
                 player.Left -= 8;
+            }
+
+            //final score ending
+            if(userScore > 10)
+            {
+                gameTimer.Stop();
+                MessageBox.Show("You won!");
+            }
+            if(cpuScore > 10)
+            {
+                gameTimer.Stop();
+                MessageBox.Show("CPU wins!");
             }
         }
     }

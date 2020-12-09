@@ -33,13 +33,13 @@ namespace SoccerGame
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Soccer));
             this.player = new System.Windows.Forms.PictureBox();
             this.cpu = new System.Windows.Forms.PictureBox();
-            this.pictureBox3 = new System.Windows.Forms.PictureBox();
-            this.playerScore = new System.Windows.Forms.Label();
-            this.label1 = new System.Windows.Forms.Label();
+            this.ball = new System.Windows.Forms.PictureBox();
+            this.userPoints = new System.Windows.Forms.Label();
+            this.cpuPoints = new System.Windows.Forms.Label();
             this.gameTimer = new System.Windows.Forms.Timer(this.components);
             ((System.ComponentModel.ISupportInitialize)(this.player)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.cpu)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.ball)).BeginInit();
             this.SuspendLayout();
             // 
             // player
@@ -47,7 +47,7 @@ namespace SoccerGame
             this.player.BackColor = System.Drawing.Color.Transparent;
             this.player.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("player.BackgroundImage")));
             this.player.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.player.Location = new System.Drawing.Point(122, 298);
+            this.player.Location = new System.Drawing.Point(128, 298);
             this.player.Name = "player";
             this.player.Size = new System.Drawing.Size(33, 36);
             this.player.TabIndex = 0;
@@ -64,40 +64,40 @@ namespace SoccerGame
             this.cpu.TabIndex = 1;
             this.cpu.TabStop = false;
             // 
-            // pictureBox3
+            // ball
             // 
-            this.pictureBox3.BackColor = System.Drawing.Color.Transparent;
-            this.pictureBox3.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("pictureBox3.BackgroundImage")));
-            this.pictureBox3.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.pictureBox3.Location = new System.Drawing.Point(529, 298);
-            this.pictureBox3.Name = "pictureBox3";
-            this.pictureBox3.Size = new System.Drawing.Size(30, 36);
-            this.pictureBox3.TabIndex = 2;
-            this.pictureBox3.TabStop = false;
+            this.ball.BackColor = System.Drawing.Color.Transparent;
+            this.ball.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("ball.BackgroundImage")));
+            this.ball.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.ball.Location = new System.Drawing.Point(529, 298);
+            this.ball.Name = "ball";
+            this.ball.Size = new System.Drawing.Size(30, 36);
+            this.ball.TabIndex = 2;
+            this.ball.TabStop = false;
             // 
-            // playerScore
+            // userPoints
             // 
-            this.playerScore.AutoSize = true;
-            this.playerScore.BackColor = System.Drawing.Color.Transparent;
-            this.playerScore.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.playerScore.ForeColor = System.Drawing.Color.Red;
-            this.playerScore.Location = new System.Drawing.Point(86, 13);
-            this.playerScore.Name = "playerScore";
-            this.playerScore.Size = new System.Drawing.Size(38, 25);
-            this.playerScore.TabIndex = 3;
-            this.playerScore.Text = "00";
+            this.userPoints.AutoSize = true;
+            this.userPoints.BackColor = System.Drawing.Color.Transparent;
+            this.userPoints.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.userPoints.ForeColor = System.Drawing.Color.Red;
+            this.userPoints.Location = new System.Drawing.Point(86, 13);
+            this.userPoints.Name = "userPoints";
+            this.userPoints.Size = new System.Drawing.Size(38, 25);
+            this.userPoints.TabIndex = 3;
+            this.userPoints.Text = "00";
             // 
-            // label1
+            // cpuPoints
             // 
-            this.label1.AutoSize = true;
-            this.label1.BackColor = System.Drawing.Color.Transparent;
-            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.ForeColor = System.Drawing.Color.Yellow;
-            this.label1.Location = new System.Drawing.Point(948, 13);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(38, 25);
-            this.label1.TabIndex = 4;
-            this.label1.Text = "00";
+            this.cpuPoints.AutoSize = true;
+            this.cpuPoints.BackColor = System.Drawing.Color.Transparent;
+            this.cpuPoints.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cpuPoints.ForeColor = System.Drawing.Color.Yellow;
+            this.cpuPoints.Location = new System.Drawing.Point(948, 13);
+            this.cpuPoints.Name = "cpuPoints";
+            this.cpuPoints.Size = new System.Drawing.Size(38, 25);
+            this.cpuPoints.TabIndex = 4;
+            this.cpuPoints.Text = "00";
             // 
             // gameTimer
             // 
@@ -114,16 +114,16 @@ namespace SoccerGame
             this.ClientSize = new System.Drawing.Size(1086, 633);
             this.Controls.Add(this.cpu);
             this.Controls.Add(this.player);
-            this.Controls.Add(this.label1);
-            this.Controls.Add(this.playerScore);
-            this.Controls.Add(this.pictureBox3);
+            this.Controls.Add(this.cpuPoints);
+            this.Controls.Add(this.userPoints);
+            this.Controls.Add(this.ball);
             this.Name = "Soccer";
             this.Text = "Soccer Game";
             this.KeyDown += new System.Windows.Forms.KeyEventHandler(this.keyisdown);
             this.KeyUp += new System.Windows.Forms.KeyEventHandler(this.keyisup);
             ((System.ComponentModel.ISupportInitialize)(this.player)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.cpu)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.ball)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -133,9 +133,9 @@ namespace SoccerGame
 
         private System.Windows.Forms.PictureBox player;
         private System.Windows.Forms.PictureBox cpu;
-        private System.Windows.Forms.PictureBox pictureBox3;
-        private System.Windows.Forms.Label playerScore;
-        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.PictureBox ball;
+        private System.Windows.Forms.Label userPoints;
+        private System.Windows.Forms.Label cpuPoints;
         private System.Windows.Forms.Timer gameTimer;
     }
 }
