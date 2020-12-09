@@ -1,7 +1,7 @@
 ﻿
 namespace SoccerGame
 {
-    partial class Form1
+    partial class Soccer
     {
         /// <summary>
         /// Required designer variable.
@@ -29,38 +29,40 @@ namespace SoccerGame
         /// </summary>
         private void InitializeComponent()
         {
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form1));
-            this.pictureBox1 = new System.Windows.Forms.PictureBox();
-            this.pictureBox2 = new System.Windows.Forms.PictureBox();
+            this.components = new System.ComponentModel.Container();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Soccer));
+            this.player = new System.Windows.Forms.PictureBox();
+            this.cpu = new System.Windows.Forms.PictureBox();
             this.pictureBox3 = new System.Windows.Forms.PictureBox();
             this.playerScore = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
+            this.gameTimer = new System.Windows.Forms.Timer(this.components);
+            ((System.ComponentModel.ISupportInitialize)(this.player)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.cpu)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).BeginInit();
             this.SuspendLayout();
             // 
-            // pictureBox1
+            // player
             // 
-            this.pictureBox1.BackColor = System.Drawing.Color.Transparent;
-            this.pictureBox1.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("pictureBox1.BackgroundImage")));
-            this.pictureBox1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.pictureBox1.Location = new System.Drawing.Point(91, 298);
-            this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(33, 36);
-            this.pictureBox1.TabIndex = 0;
-            this.pictureBox1.TabStop = false;
+            this.player.BackColor = System.Drawing.Color.Transparent;
+            this.player.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("player.BackgroundImage")));
+            this.player.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.player.Location = new System.Drawing.Point(122, 298);
+            this.player.Name = "player";
+            this.player.Size = new System.Drawing.Size(33, 36);
+            this.player.TabIndex = 0;
+            this.player.TabStop = false;
             // 
-            // pictureBox2
+            // cpu
             // 
-            this.pictureBox2.BackColor = System.Drawing.Color.Transparent;
-            this.pictureBox2.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("pictureBox2.BackgroundImage")));
-            this.pictureBox2.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.pictureBox2.Location = new System.Drawing.Point(953, 298);
-            this.pictureBox2.Name = "pictureBox2";
-            this.pictureBox2.Size = new System.Drawing.Size(33, 36);
-            this.pictureBox2.TabIndex = 1;
-            this.pictureBox2.TabStop = false;
+            this.cpu.BackColor = System.Drawing.Color.Transparent;
+            this.cpu.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("cpu.BackgroundImage")));
+            this.cpu.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.cpu.Location = new System.Drawing.Point(928, 298);
+            this.cpu.Name = "cpu";
+            this.cpu.Size = new System.Drawing.Size(33, 36);
+            this.cpu.TabIndex = 1;
+            this.cpu.TabStop = false;
             // 
             // pictureBox3
             // 
@@ -97,22 +99,30 @@ namespace SoccerGame
             this.label1.TabIndex = 4;
             this.label1.Text = "00";
             // 
-            // Form1
+            // gameTimer
+            // 
+            this.gameTimer.Enabled = true;
+            this.gameTimer.Interval = 20;
+            this.gameTimer.Tick += new System.EventHandler(this.timerTick);
+            // 
+            // Soccer
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("$this.BackgroundImage")));
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.ClientSize = new System.Drawing.Size(1086, 633);
+            this.Controls.Add(this.cpu);
+            this.Controls.Add(this.player);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.playerScore);
             this.Controls.Add(this.pictureBox3);
-            this.Controls.Add(this.pictureBox2);
-            this.Controls.Add(this.pictureBox1);
-            this.Name = "Form1";
-            this.Text = "Form1";
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
+            this.Name = "Soccer";
+            this.Text = "Soccer Game";
+            this.KeyDown += new System.Windows.Forms.KeyEventHandler(this.keyisdown);
+            this.KeyUp += new System.Windows.Forms.KeyEventHandler(this.keyisup);
+            ((System.ComponentModel.ISupportInitialize)(this.player)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.cpu)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
@@ -121,11 +131,12 @@ namespace SoccerGame
 
         #endregion
 
-        private System.Windows.Forms.PictureBox pictureBox1;
-        private System.Windows.Forms.PictureBox pictureBox2;
+        private System.Windows.Forms.PictureBox player;
+        private System.Windows.Forms.PictureBox cpu;
         private System.Windows.Forms.PictureBox pictureBox3;
         private System.Windows.Forms.Label playerScore;
         private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Timer gameTimer;
     }
 }
 
