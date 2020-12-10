@@ -21,6 +21,7 @@ namespace SoccerGame
         int bally = 7;
         int userScore = 0;
         int cpuScore = 0;
+        int instructions = 0;
 
         public Soccer()
         {
@@ -72,18 +73,66 @@ namespace SoccerGame
             userPoints.Text = "" + userScore;
             cpuPoints.Text = "" + cpuScore;
 
-            ball.Top -= bally;
+            ball.Top -= bally; 
             ball.Left -= ballx;
 
             cpu.Top += speed;
 
-            //cpu functionality -- fix
+            //cpu functionality
 
-
+            if(userScore < 2)
+            {
+                if(cpu.Top < 192|| cpu.Top > 340)
+                {
+                    speed = -speed;
+                }
+            }
+            else
+            {
+                cpu.Top = ball.Top + 30;
+            }
 
             //ball functionality -- fix
    
+            if(ball.Left < 68 && ball.Top > 250 && ball.Top < 290)
+            {
+                ball.Left = 434;
+                ballx = -ballx;
+                ballx -= 2;
+                cpuScore++;
+                lblmatchMoments.Text = "Yellow Scores!";
+            }
 
+            if(ball.Left > 830 && ball.Top > 250 && ball.Top < 290)
+            {
+                ball.Left = 434;
+                ballx = -ballx;
+                ballx += 2;
+                userScore++;
+                lblmatchMoments.Text = "Red Scores!";
+            }
+
+            if (ball.Left > 830 && ball.Top > 240 && ball.Top < 250 || ball.Left > 830 && ball.Top > 290 && ball.Top < 300 || 
+                ball.Left < 68 && ball.Top > 240 && ball.Top < 250 || ball.Left < 68 && ball.Top > 290 && ball.Top < 300)
+            {
+                lblmatchMoments.Text = "Hit off the post!";
+            }
+
+            if (ball.Top < 50 || ball.Top > 485)
+            {
+                bally = -bally;
+            }
+
+            if(ball.Left < 67 || ball.Left > 831)
+            {
+                ballx = -ballx;
+            }
+
+            if(ball.Bounds.IntersectsWith(player.Bounds) || ball.Bounds.IntersectsWith(cpu.Bounds))
+            {
+                ballx = -ballx;
+                lblmatchMoments.Text = "";
+            }
 
             //player functionality
             if (moveUp == true && player.Top > 54)
@@ -114,6 +163,39 @@ namespace SoccerGame
                 gameTimer.Stop();
                 MessageBox.Show("CPU wins!");
             }
+        }
+
+        private void Soccer_Load(object sender, EventArgs e)
+        {
+            lblmatchMoments.Text = "Welcome to my Soccer Application!";
+            btnBegin.Visible = false;
+        }
+
+        private void btnNext_Click(object sender, EventArgs e)
+        {
+            instructions++;
+
+            switch (instructions)
+            {
+                case 1:
+                    lblmatchMoments.Text = "Use Arrow Keys to Move Player.";
+                    break;
+                case 2:
+                    lblmatchMoments.Text = "First to 5 goals wins!";
+                    break;
+                case 3:
+                    lblmatchMoments.Text = "Click the Begin button to start match!";
+                    btnBegin.Visible = true;
+                    btnNext.Visible = false;
+                    break;
+            }
+        }
+
+        private void btnBegin_Click(object sender, EventArgs e)
+        {
+            gameTimer.Enabled = true;
+            btnBegin.Visible = false;
+            lblmatchMoments.Text = "";
         }
     }
 }
