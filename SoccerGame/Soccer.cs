@@ -21,7 +21,6 @@ namespace SoccerGame
         int bally = 7;
         int userScore = 0;
         int cpuScore = 0;
-        int instructions = 0;
 
         public Soccer()
         {
@@ -101,6 +100,8 @@ namespace SoccerGame
                 ballx -= 2;
                 cpuScore++;
                 lblmatchMoments.Text = "Yellow Scores!";
+                lblMessage1.Text = "";
+                lblMessage2.Text = "";
             }
 
             if(ball.Left > 830 && ball.Top > 250 && ball.Top < 290)
@@ -110,10 +111,12 @@ namespace SoccerGame
                 ballx += 2;
                 userScore++;
                 lblmatchMoments.Text = "Red Scores!";
+                lblMessage1.Text = "";
+                lblMessage2.Text = "";
             }
 
-            if (ball.Left > 830 && ball.Top > 240 && ball.Top < 250 || ball.Left > 830 && ball.Top > 290 && ball.Top < 300 || 
-                ball.Left < 68 && ball.Top > 240 && ball.Top < 250 || ball.Left < 68 && ball.Top > 290 && ball.Top < 300)
+            if (ball.Left > 830 && ball.Top > 230 && ball.Top < 250 || ball.Left > 830 && ball.Top > 290 && ball.Top < 310 || 
+                ball.Left < 68 && ball.Top > 230 && ball.Top < 250 || ball.Left < 68 && ball.Top > 290 && ball.Top < 310)
             {
                 lblmatchMoments.Text = "Hit off the post!";
             }
@@ -168,34 +171,35 @@ namespace SoccerGame
         private void Soccer_Load(object sender, EventArgs e)
         {
             lblmatchMoments.Text = "Welcome to my Soccer Application!";
-            btnBegin.Visible = false;
+            //btnBegin.Visible = false;
         }
 
+        //tried to create an inital start up command but it kept messing with the user's movement
         private void btnNext_Click(object sender, EventArgs e)
         {
-            instructions++;
+            //instructions++;
 
-            switch (instructions)
-            {
-                case 1:
-                    lblmatchMoments.Text = "Use Arrow Keys to Move Player.";
-                    break;
-                case 2:
-                    lblmatchMoments.Text = "First to 5 goals wins!";
-                    break;
-                case 3:
-                    lblmatchMoments.Text = "Click the Begin button to start match!";
-                    btnBegin.Visible = true;
-                    btnNext.Visible = false;
-                    break;
-            }
+            //switch (instructions)
+            //{
+            //    case 1:
+            //        lblmatchMoments.Text = "Use the Arrow Keys to move your player.";
+            //        break;
+            //    case 2:
+            //        lblmatchMoments.Text = "First to 5 goals wins!";
+            //        break;
+            //    case 3:
+            //        lblmatchMoments.Text = "Click the Begin button to start match!";
+            //        btnBegin.Visible = true;
+            //        btnNext.Visible = false;
+            //        break;
+            //}
         }
 
         private void btnBegin_Click(object sender, EventArgs e)
         {
-            gameTimer.Enabled = true;
-            btnBegin.Visible = false;
-            lblmatchMoments.Text = "";
+            //gameTimer.Enabled = true;
+            //btnBegin.Visible = false;
+            //lblmatchMoments.Text = "";
         }
     }
 }

@@ -40,6 +40,8 @@ namespace SoccerGame
             this.lblmatchMoments = new System.Windows.Forms.Label();
             this.btnBegin = new System.Windows.Forms.Button();
             this.btnNext = new System.Windows.Forms.Button();
+            this.lblMessage1 = new System.Windows.Forms.Label();
+            this.lblMessage2 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.player)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.cpu)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.ball)).BeginInit();
@@ -104,6 +106,7 @@ namespace SoccerGame
             // 
             // gameTimer
             // 
+            this.gameTimer.Enabled = true;
             this.gameTimer.Interval = 20;
             this.gameTimer.Tick += new System.EventHandler(this.timerTick);
             // 
@@ -127,6 +130,7 @@ namespace SoccerGame
             this.btnBegin.TabIndex = 6;
             this.btnBegin.Text = "Begin";
             this.btnBegin.UseVisualStyleBackColor = true;
+            this.btnBegin.Visible = false;
             this.btnBegin.Click += new System.EventHandler(this.btnBegin_Click);
             // 
             // btnNext
@@ -137,7 +141,32 @@ namespace SoccerGame
             this.btnNext.TabIndex = 7;
             this.btnNext.Text = "Next";
             this.btnNext.UseVisualStyleBackColor = true;
+            this.btnNext.Visible = false;
             this.btnNext.Click += new System.EventHandler(this.btnNext_Click);
+            // 
+            // lblMessage1
+            // 
+            this.lblMessage1.AutoSize = true;
+            this.lblMessage1.BackColor = System.Drawing.Color.Transparent;
+            this.lblMessage1.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblMessage1.ForeColor = System.Drawing.Color.Blue;
+            this.lblMessage1.Location = new System.Drawing.Point(59, 534);
+            this.lblMessage1.Name = "lblMessage1";
+            this.lblMessage1.Size = new System.Drawing.Size(387, 24);
+            this.lblMessage1.TabIndex = 8;
+            this.lblMessage1.Text = "Use the Arrow Keys to Move Your Player";
+            // 
+            // lblMessage2
+            // 
+            this.lblMessage2.AutoSize = true;
+            this.lblMessage2.BackColor = System.Drawing.Color.Transparent;
+            this.lblMessage2.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblMessage2.ForeColor = System.Drawing.Color.Blue;
+            this.lblMessage2.Location = new System.Drawing.Point(589, 534);
+            this.lblMessage2.Name = "lblMessage2";
+            this.lblMessage2.Size = new System.Drawing.Size(207, 24);
+            this.lblMessage2.TabIndex = 9;
+            this.lblMessage2.Text = "First to 5 Goals Wins!";
             // 
             // Soccer
             // 
@@ -146,14 +175,16 @@ namespace SoccerGame
             this.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("$this.BackgroundImage")));
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.ClientSize = new System.Drawing.Size(928, 574);
+            this.Controls.Add(this.lblMessage2);
+            this.Controls.Add(this.lblMessage1);
             this.Controls.Add(this.cpu);
             this.Controls.Add(this.player);
             this.Controls.Add(this.cpuPoints);
             this.Controls.Add(this.userPoints);
             this.Controls.Add(this.ball);
             this.Controls.Add(this.lblmatchMoments);
-            this.Controls.Add(this.btnBegin);
             this.Controls.Add(this.btnNext);
+            this.Controls.Add(this.btnBegin);
             this.Name = "Soccer";
             this.Text = "Soccer Game";
             this.Load += new System.EventHandler(this.Soccer_Load);
@@ -178,6 +209,8 @@ namespace SoccerGame
         private System.Windows.Forms.Label lblmatchMoments;
         private System.Windows.Forms.Button btnBegin;
         private System.Windows.Forms.Button btnNext;
+        private System.Windows.Forms.Label lblMessage1;
+        private System.Windows.Forms.Label lblMessage2;
     }
 }
 
